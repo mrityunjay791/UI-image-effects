@@ -1,0 +1,60 @@
+@import 'compass/css3';
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: #000;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222 linear-gradient(currentColor, currentColor) 50%/ 2px repeat-y;
+  color: #ddd;
+}
+article {
+  --s: -1;
+  display: flex;
+  align-items: center;
+  height: calc(100vh/var(--n));
+  transform: translate(calc(var(--s)*50%));
+}
+article:nth-child(2n) {
+  --s: 1;
+}
+article:nth-child(2n) img {
+  --cpval: polygon(, 50%*1cos(36deg) 50%*1sin(36deg), 50%*1cos(108deg) 50%*1sin(108deg), 50%*1cos(180deg) 50%*1sin(180deg), 50%*1cos(252deg) 50%*1sin(252deg), 50%*1cos(324deg) 50%*1sin(324deg));
+  -webkit-clip-path: var(--cpval);
+  clip-path: var(--cpval);
+}
+article:nth-child(2n) img:hover {
+  --cpval: polygon(, 50%*1cos(-36deg) 50%*1sin(-36deg), 50%*1cos(36deg) 50%*1sin(36deg), 50%*1cos(108deg) 50%*1sin(108deg), 50%*1cos(180deg) 50%*1sin(180deg), 50%*1cos(252deg) 50%*1sin(252deg));
+  -webkit-clip-path: var(--cpval);
+  clip-path: var(--cpval);
+}
+h3 {
+  order: var(--s);
+  font: 700 2em segoe script, cursive;
+  text-transform: capitalize;
+}
+figure, img {
+  height: 100%;
+}
+figure {
+  background: linear-gradient(currentColor, currentColor) calc((1 - var(--s))*50%) 50%/ 50% 2px no-repeat;
+  filter: drop-shadow(2px 2px 3px currentcolor);
+}
+img {
+  display: block;
+  margin: 0 1em;
+  --cpval: polygon(, 50%*1cos(0deg) 50%*1sin(0deg), 50%*1cos(72deg) 50%*1sin(72deg), 50%*1cos(144deg) 50%*1sin(144deg), 50%*1cos(216deg) 50%*1sin(216deg), 50%*1cos(288deg) 50%*1sin(288deg));
+  -webkit-clip-path: var(--cpval);
+  clip-path: var(--cpval);
+  transition: 0.7s;
+}
+img:hover {
+  --cpval: polygon(, 50%*1cos(72deg) 50%*1sin(72deg), 50%*1cos(144deg) 50%*1sin(144deg), 50%*1cos(216deg) 50%*1sin(216deg), 50%*1cos(288deg) 50%*1sin(288deg), 50%*1cos(360deg) 50%*1sin(360deg));
+  -webkit-clip-path: var(--cpval);
+  clip-path: var(--cpval);
+}
